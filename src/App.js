@@ -76,7 +76,7 @@ function App() {
     return () => {
       subscription?.unsubscribe();
     };
-  }, []);
+  }, [showToast]);
 
   const handleSignOut = async () => {
     try {
