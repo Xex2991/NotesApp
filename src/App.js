@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { supabase } from './SupabaseClient';
 import Auth from './Components/Auth';
 import Notes from './Components/Notes';
-import PasswordReset from './components/PasswordReset';
-import UpdatePassword from './components/UpdatePassword';
-import Landing from './components/Landing';
+import PasswordReset from './Components/PasswordReset';
+import UpdatePassword from './Components/UpdatePassword';
+import Landing from './Components/Landing';
 import { useToast } from './ToastContext';
 import './App.css';
 
@@ -84,7 +84,7 @@ function App() {
     return () => {
       subscription?.unsubscribe();
     };
-  }, []);
+  }, [showToast]);
 
   const handleSignOut = async () => {
     try {

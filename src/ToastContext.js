@@ -1,21 +1,23 @@
-import React, {createContext, useState, useContext} from "react";
+import React, {createContext, useState, useContext, useCallback} from "react";
 
 const ToastContext = createContext();
 
 export function ToastProvider({ children }) {
     const [toast, setToast] = useState(null);
 
-    const showToast = (message, type = 'success') => {
+    // useCallback keeps these functions stable between renders, so effects
+    // that depend on them (e.g. the auth listener in App.js) don't re-run.
+    const showToast = useCallback((message, type = 'success') => {
         setToast({ message, type });
 
         setTimeout(() => {
             setToast(null);
         }, 3000);
-    };
+    }, []);
 
-    const clearToast = () => {
+    const clearToast = useCallback(() => {
         setToast(null);
-    };
+    }, []);
 
     return(
         <ToastContext.Provider value={{ toast, showToast, clearToast }}>
