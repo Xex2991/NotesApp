@@ -16,7 +16,7 @@ function Auth({ setView, error: externalError }) {
     }, [externalError]);
 
     const handleAuth = async (e) => {
-        e.preventDefaul();
+        e.preventDefault();
         setLoading(true);
         setMessage('');
         setError('');

@@ -43,11 +43,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const { data: {subsciption} } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: {subscription} } = supabase.auth.onAuthStateChange((event, session) => {
       console.log("Auth event:", event);
 
       switch (event) {
-        case 'SIGN_IN':
+        case 'SIGNED_IN':
           console.log("User signed in");
           setSession(session);
           showToast("Successfully signed in!", "success");
@@ -74,7 +74,7 @@ function App() {
     });
 
     return () => {
-      subsciption?.unsubscribe();
+      subscription?.unsubscribe();
     };
   }, []);
 

@@ -138,6 +138,7 @@ function Landing({ setView }) {
             {/* Footer */}
             <footer className="bg-primary text-white text-white text-center py-4">
                 <p className="mb-0">&copy; {new Date().getFullYear()} NoteKeeper. All rights reserved</p>
+                <p className="mb-0"> Created by Nurasyl</p>
             </footer>
 
             {/* Custom CSS  for card hover effect */}
